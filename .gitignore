@@ -2,3 +2,6 @@
 #*
 .#*
 parts/
+prime/
+stage/
+*.snap
