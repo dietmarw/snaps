@@ -22,7 +22,6 @@ description: Drawing editor for creating figures in PDF or PS formats
 
 confinement: devmode  # use "strict" to enforce system access only via declared interfaces
 
-
 parts:
   ipe:
     source: https://dl.bintray.com/otfried/generic/ipe/7.2/ipe-7.2.5-src.tar.gz
@@ -30,7 +29,7 @@ parts:
     source-subdir: src
     plugin: make
     make-parameters:
-      - IPEPREFIX=/usr/local
+      - IPEPREFIX=$SNAPCRAFT_STAGE
       - QT_SELECT=5
     build-packages:
       - libcairo2-dev
@@ -42,6 +41,9 @@ parts:
       - qtbase5-dev
       - qtbase5-dev-tools
       - zlib1g-dev
+
 apps:
   ipe:
     command: ipe
+    plugs:
+      - x11
