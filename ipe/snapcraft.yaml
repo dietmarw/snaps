@@ -26,7 +26,12 @@ confinement: devmode  # use "strict" to enforce system access only via declared 
 parts:
   ipe:
     source: https://dl.bintray.com/otfried/generic/ipe/7.2/ipe-7.2.5-src.tar.gz
+    source-type: tar
+    source-subdir: src
     plugin: make
+    make-parameters:
+      - IPEPREFIX=/usr/local
+      - QT_SELECT=5
     build-packages:
       - libcairo2-dev
       - libfreetype6-dev
@@ -37,7 +42,6 @@ parts:
       - qtbase5-dev
       - qtbase5-dev-tools
       - zlib1g-dev
-
 apps:
   ipe:
     command: ipe
