@@ -29,7 +29,7 @@ parts:
     source-subdir: src
     plugin: make
     make-parameters:
-      - IPEPREFIX=$SNAPCRAFT_STAGE
+      - IPEPREFIX=../../../install
       - QT_SELECT=5
     build-packages:
       - libcairo2-dev
@@ -44,6 +44,22 @@ parts:
 
 apps:
   ipe:
-    command: ipe
+    command: bin/ipe
     plugs:
       - x11
+
+  ipetoipe:
+    command: bin/ipetoipe
+
+  ipeextract:
+    command: bin/ipeextract
+
+  iperender:
+    command: bin/iperender
+
+  ipescript:
+    command: bin/ipescript
+
+
+  ipe6upgrade:
+    command: bin/ipe6upgrade
