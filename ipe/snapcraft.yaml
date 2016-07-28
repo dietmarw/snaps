@@ -46,24 +46,34 @@ parts:
       - libqt5gui5
     after: [qt5conf] # A part in the cloud
 
-
 apps:
   ipe:
-    command: bin/ipe
+    command: qt5-launch bin/ipe
     plugs:
       - x11
+      - home
 
   ipetoipe:
     command: bin/ipetoipe
+    plugs:
+      - home
 
   ipeextract:
     command: bin/ipeextract
+    plugs:
+      - home
 
   iperender:
     command: bin/iperender
+    plugs:
+      - home
 
   ipescript:
     command: bin/ipescript
+    plugs:
+      - home
 
   ipe6upgrade:
     command: bin/ipe6upgrade
+    plugs:
+      - home
