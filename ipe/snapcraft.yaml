@@ -41,6 +41,11 @@ parts:
       - qtbase5-dev
       - qtbase5-dev-tools
       - zlib1g-dev
+    stage-packages:
+      # Here for the plugins-- they're not linked in automatically.
+      - libqt5gui5
+    after: [qt5conf] # A part in the cloud
+
 
 apps:
   ipe:
@@ -59,7 +64,6 @@ apps:
 
   ipescript:
     command: bin/ipescript
-
 
   ipe6upgrade:
     command: bin/ipe6upgrade
