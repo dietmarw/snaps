@@ -47,9 +47,14 @@ parts:
       # Here for the plugins-- they're not linked in automatically.
     after: [desktop/qt5] # A part in the cloud
 
+  launcher:
+    plugin: copy
+    files:
+      wrapper.sh: bin/wrapper.sh
+
 apps:
   ipe:
-    command: desktop-launch ipe
+    command: desktop-launch wrapper.sh
     plugs: [unity7, home]
 
   ipetoipe:
