@@ -24,12 +24,14 @@ confinement: devmode  # use "strict" to enforce system access only via declared 
 
 parts:
   ipe:
-    source: https://dl.bintray.com/otfried/generic/ipe/7.2/ipe-7.2.5-src.tar.gz
-    source-type: tar
+#    source: https://dl.bintray.com/otfried/generic/ipe/7.2/ipe-7.2.5-src.tar.gz
+    source: https://github.com/dietmarw/ipe.git
+    source-type: git
+    source-tag: v7.2.5
     source-subdir: src
     plugin: make
     make-parameters:
-      - IPEPREFIX=../../../install
+#      - IPEPREFIX=../../../install # use this if using the tar-ball source
       - QT_SELECT=5
     build-packages:
       - libcairo2-dev
@@ -41,39 +43,31 @@ parts:
       - qtbase5-dev
       - qtbase5-dev-tools
       - zlib1g-dev
-    stage-packages:
+#    stage-packages:
       # Here for the plugins-- they're not linked in automatically.
-      - libqt5gui5
-    after: [qt5conf] # A part in the cloud
+    after: [desktop/qt5] # A part in the cloud
 
 apps:
   ipe:
-    command: qt5-launch bin/ipe
-    plugs:
-      - x11
-      - home
+    command: desktop-launch ipe
+    plugs: [unity7, home]
 
   ipetoipe:
     command: bin/ipetoipe
-    plugs:
-      - home
+    plugs: [home]
 
   ipeextract:
     command: bin/ipeextract
-    plugs:
-      - home
+    plugs: [home]
 
   iperender:
     command: bin/iperender
-    plugs:
-      - home
+    plugs: [home]
 
   ipescript:
     command: bin/ipescript
-    plugs:
-      - home
+    plugs: [home]
 
   ipe6upgrade:
     command: bin/ipe6upgrade
-    plugs:
-      - home
+    plugs: [home]
