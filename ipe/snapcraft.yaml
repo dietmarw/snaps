@@ -56,7 +56,7 @@ parts:
 apps:
   ipe:
     command: desktop-launch wrapper.sh
-    plugs: [unity7, home]
+    plugs: [x11, home]
 
   ipetoipe:
     command: bin/ipetoipe
