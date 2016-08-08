@@ -55,25 +55,25 @@ parts:
 
 apps:
   ipe:
-    command: desktop-launch wrapper.sh
+    command: desktop-launch wrapper.sh $SNAP/bin/ipe
     plugs: [x11, home]
 
   ipetoipe:
-    command: bin/ipetoipe
+    command: wrapper.sh $SNAP/bin/ipetoipe
     plugs: [home]
 
   ipeextract:
-    command: bin/ipeextract
+    command: wrapper.sh $SNAP/bin/ipeextract
     plugs: [home]
 
   iperender:
-    command: bin/iperender
+    command: wrapper.sh $SNAP/bin/iperender
     plugs: [home]
 
   ipescript:
-    command: bin/ipescript
+    command: wrapper.sh $SNAP/bin/ipescript
     plugs: [home]
 
   ipe6upgrade:
-    command: bin/ipe6upgrade
+    command: wrapper.sh $SNAP/bin/ipe6upgrade
     plugs: [home]
