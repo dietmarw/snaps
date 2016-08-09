@@ -58,6 +58,10 @@ apps:
     command: desktop-launch wrapper.sh $SNAP/bin/ipe
     plugs: [x11, home]
 
+  test:
+    command: wrapper.sh "$@"
+    plugs: [home]
+
   ipetoipe:
     command: wrapper.sh $SNAP/bin/ipetoipe
     plugs: [home]
